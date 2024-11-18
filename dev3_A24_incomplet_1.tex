@@ -1,0 +1,266 @@
+
+% !TeX spellcheck = fr_CA
+\documentclass[11pt]{article}
+
+\newcommand{\ENONCE}[1]{#1}
+\newcommand{\REMISE}[1]{}
+ \usepackage[T1]{fontenc}
+\frenchspacing
+%\usepackage[francais]{babel}  % genere les trucs automatique en francais
+\usepackage{enumerate}
+
+\usepackage{hyperref}
+\usepackage[canadien]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[all]{xy}
+\usepackage{multicol, array}
+
+\usepackage[top=25mm, bottom=25mm, left=25mm, right=25mm]{geometry}
+
+\usepackage{amssymb}
+\usepackage{amsmath,wasysym}
+\usepackage{epigraph}
+\usepackage{subfig}
+\usepackage{framed}
+\usepackage{graphicx}
+\usepackage{color}
+
+
+%%% Couleurs du texte %%%
+\newcommand{\rouge}[1]{\textcolor{red}{#1}}
+\newcommand{\bleu}[1]{\textcolor{blue}{#1}}
+\newcommand{\blanc}[1]{\textcolor{white}{#1}}
+
+%%% Valeurs booléennes %%%
+\newcommand{\vrai}{\mbox{\tt vrai}}
+\newcommand{\faux}{\mbox{\tt faux}}
+\newcommand{\V}{\mbox{\tt v}}
+\newcommand{\F}{\mbox{\tt f}}
+
+%%% Opérateur booléens %%%
+\newcommand{\non}{\neg}                  % Opérareur de négation
+\newcommand{\et}{\wedge}                 % Opérareur de conjonction
+\newcommand{\ou}{\vee}                   % Opérareur de disjonction
+\newcommand{\implique}{\Rightarrow}      % Opérareur d'implication
+\newcommand{\impliqueinv}{\Leftarrow}    % Opérareur d'implication inverse
+\newcommand{\ssi}{\Leftrightarrow}       % Opérareur si et seulement si
+
+%%% Opérateurs ensemblistes %%%
+\newcommand{\dans}{\in}                  % Opérateur d'appartenance
+\newcommand{\inclus}{\subseteq}          % Opérareur d'inclusion
+\newcommand{\strictinclus}{\subset}      % Opérareur d'inclusion stricte
+\newcommand{\inclusinv}{\supseteq}       % Opérareur d'inclusion inverse
+\newcommand{\strictinclusinv}{\supset}   % Opérareur d'inclusion stricte inverse
+
+\newcommand{\nondans}{\notin}              % Négation de l'opérateur d'appartenance
+\newcommand{\noninclus}{\not\subseteq}     % Opérareur d'inclusion
+\newcommand{\nonstrictinclus}{\not\subset} % Opérareur d'inclusion stricte
+
+\newcommand{\inter}{\cap}                 % Opérateur d'intersection
+\newcommand{\union}{\cup}                 % Opérateur d'intersection
+\newcommand{\comp}{{\mbox{\footnotesize $c$}}} % Complément
+\newcommand{\moins}{\setminus}
+
+%%% Ensembles fréquemments utilisés %%%
+\newcommand{\ensembleVide}{\emptyset}  % L'ensemble vide
+\newcommand{\ensembleU}{{\mathbf{U}}}  % L'ensemble universel
+\newcommand{\ensembleB}{{\mathbb{B}}}  % L'ensemble des nombres booléens
+\newcommand{\ensembleN}{{\mathbb{N}}}  % L'ensemble des nombres naturels
+\newcommand{\ensembleZ}{{\mathbb{Z}}}  % L'ensemble des nombres relatifs
+\newcommand{\ensembleR}{\mathbb{R}}    % L'ensemble des nombres reels
+\newcommand{\ensembleQ}{\mathbb{Q}}    % L'ensemble des nombres rationnels
+
+%%% Relations  %%%
+\newcommand{\compose}{\circ}            % Opérateur de composition
+\newcommand{\croix}{\times}             % Opérateur de produit cartésien
+\newcommand{\Identite}{{\mathbf{I}}}    % Relation Identitée
+\newcommand{\Domaine}{{\mbox{\rm Dom}}} % Domaine
+\newcommand{\Image}{{\mbox{\rm Im}}}    % Image
+\newcommand{\tuple}[1]{\ensuremath{\left\langle #1 \right\rangle}}  % n-tuple
+\newcommand{\Rcal}{{\mathcal R}}       % «R» caligraphique
+\newcommand{\Lcal}{{\mathcal L}}       % «L» caligraphique
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}       % 
+\newcommand{\ceill}[1]{\lceil #1 \rceil}       % 
+
+%%% Démonstrations %%%
+\newcommand{\cqfd}{\blanc{.}\\[-2mm]\mbox{}\hfill {\bf C.Q.F.D.}\\} % C.Q.F.D
+\newcommand{\EXPLICATION}[1]{ \blanc{.}\hfill $\left\langle \mbox{ \small\it #1 } \right\rangle$ }
+\newcommand{\EXPLIQUE}[1]{ \phantom{.}\hfill $\left\langle \mbox{ \small\it #1 } \right\rangle$ }
+\newcommand{\MEXPLIQUE}[1]{\mbox{\EXPLIQUE{#1}}}
+\newcommand{\Justif}[2]{\left\langle\mbox{ \small \it \begin{minipage}{#1cm}#2 \end{minipage} }\right\rangle}
+
+
+\newcommand{\suite}[2]{\tuple{#1_n}_{n\in#2}}
+\newcommand{\dsum}{\displaystyle\sum}
+
+%%% Divers %%%
+\newcommand{\eqdef}{\overset{{\mbox{\rm\tiny def}}}{=}} % Symbole de définition
+\newcounter{exercice}\newcommand{\exercice}{ \bigskip \addtocounter{exercice}{1}\noindent \textbf{Exercice \theexercice}\\}
+\newcommand{\reponse}[1]{\REMISE{\vspace{.5cm}\noindent\textbf{Réponse : } #1 \newpage}}
+\REMISE{\renewcommand{\ENONCE}[1]{}}
+\newcommand{\Dom}{{\mbox{\rm Dom}}}
+\newcommand{\Img}{{\mbox{\rm Im}}}
+
+\renewcommand{\mod}{\textrm{\,mod\,}}
+\newcommand{\solution}[1]{}%\\\bleu{#1}}
+
+
+\begin{document}
+% ---------------------------------- DéBUT DES MODIFICATIONS À FAIRE ---------------------------
+% Décommenter la ligne suivante pour compiler en mode ``Remise de travail''
+%\renewcommand{\REMISE}[1]{#1} 
+
+\REMISE{
+\noindent
+\begin{tabular}{l}
+% Modifiez les noms etc  ---------------------------------------------------------------------
+% Les noms ne sont pas nécessaires, surtout si vous pensez que nous utiliserons votre solution pour le solutionnaire général ;)
+Nom1 B-GLO ou B-IFT\\
+Nom2 B-GLO ou B-IFT
+\end{tabular}
+}
+\noindent
+ {\LARGE \textbf{DEVOIR 3} } \hfill {\Large\bf MAT-1919:  Automne 2024}\\[1mm]
+%\emph{À remettre \emph{le } à 23h55 au plus tard}
+
+\begin{center}
+ \textcolor{blue}{Répondre à tous les numéros qui ne sont pas marqués facultatifs, car seulement certains seront corrigés. Pour les autres, vous aurez quelques points pour les avoir faits, mais aucune pénalité.}
+\end{center}
+
+\ENONCE{
+\noindent
+\emph{
+Toutes les consignes suivantes seront considérées dans la note :
+\begin{itemize}%\addtolength{\itemsep}{-4pt}
+\item[$\bullet$] Enregistrez votre équipe \rouge{ENCORE} (1 à 3 étudiants) avant la date limite. % même si le ciel est bleu. 
+%
+\item[$\bullet$]  Remise :  {{\textbf{un} fichier pdf \textbf{par exercice} (un seul)}, chacun étant  identifié par son numéro comme \bleu{dernier} caractère} (exemple: \emph{1.pdf, 2.pdf}). Pas de zip, pas de jpg. 
+\item[$\bullet$]  Soignez la \textbf{lisibilité} et l'orthographe. \bleu{Remettez un travail professionnel, même écrit à la main! }Les photos sont souvent  de \textbf{piètre qualité} (prenez Office Lens).  
+\item[$\bullet$]  Retard :  les 2 premières heures non pénalisées; ensuite -1\% par heure de retard.
+\end{itemize}
+\noindent .
+\\\bleu{Travaillez en équipe si possible,  faites  tous les numéros, il en va de votre préparation à l'examen final.}
+}}
+\\
+Certains numéros sont marqués comme \textbf{facultatifs}. Ils seront commentés, c'est-à-dire corrigés,  mais vous n'obtiendrez pas de points, ni de pénalité si vous ne les faites pas. Ces numéros restent importants pour votre \textbf{préparation à l'examen final}.
+
+\exercice 
+Démontrez la dénombrabilité  de l'ensemble $\ensembleZ_{<0}\times \ensembleN$ sans construire de bijection à partir de $\ensembleN$, mais plutôt  en utilisant des théorèmes des notes de cours. 
+
+
+
+\exercice\vspace{-3mm}
+\begin{enumerate}[A)]%\addtolength{\itemsep}{-4pt}
+\item  Tracez le diagramme de Hasse des relations ci-dessous, si c'est possible.  Sinon, 
+\begin{itemize}
+\item donnez la propriété qui l'empêche et pourquoi elle n'est pas vérifiée; s'il y en a plus d'une, dites-les toutes.
+\item  si la relation est une relation d'équivalence, donnez ses classes d'équivalence, de deux façons: 
+\begin{itemize}%\addtolength{\itemsep}{-4pt}
+\item 1) en les écrivant en extension (comme ensembles) 
+\item 2) à l'aide d'un représentant de la classe (pour chaque classe).
+\end{itemize}
+\item si la relation n'est pas une relation d'équivalence, donnez la propriété qui l'empêche et pourquoi elle n'est pas vérifiée; s'il y en a plus d'une, dites-les toutes.
+\end{itemize}
+
+
+\begin{enumerate}[a)]%\addtolength{\itemsep}{-4pt}
+\item  La relation sur $\{0,1,2,3,4,5\}$  suivante 
+${\cal R} = I_{\{0,1,2,3,4,5\}} \cup\{  \tuple{0,0},\tuple{1,4}, \tuple{3,2},\tuple{4,5}\}$
+\item La fermeture transitive de la relation étudiée en a)
+\item  L'union de la relation considérée en b) avec son inverse.
+\item  La clôture transitive de la relation étudiée en c)
+\end{enumerate}\end{enumerate}
+\noindent
+\emph{Pour B) répondez aux mêmes questions qu'en A)  mais ne dessinez pas le diagramme de Hasse si c'est un ordre partiel et dites  si c'est un ordre total; d'autre part, si c'est une relation d'équivalence, plutôt que de donner toutes ses classes d'équivalences, décrivez-en une et dites combien il y en a. Justifiez le tout informellement.}
+\begin{enumerate}[B)]
+\item \textbf{(Facultatif)}  Sur les mots binaires de longueur 3, considérez la fermeture réflexive\footnote{Si ${\cal R}\subseteq S^2$ est une relation, sa fermeture/clôture réflexive est ${\cal R}\cup {\cal R}^0$.} de la relation ${\cal L}$: «~a un plus petit nombre de 1  (ou égal) que », par exemple, $100\,{\cal L}\, 011$, $010\,{\cal L}\, 010$, etc. 
+\\ \emph{Réflexion (réponse non obligatoire):} Le fait de prendre la \emph{fermeture réflexive} dans cette question, qu'est-ce que ça change, et quel est l'avantage que cette notion de \emph{fermeture réflexive} soit définie?
+\end{enumerate}
+\newpage
+
+\exercice 
+Soit $\theta$ une relation d'équivalence sur un ensemble $S$. Considérons $C = \{[s]_{\theta} \mid s\in S\}$ et $f: S\to C$ la fonction qui envoie un élément $s \in S$ sur $[s]_{\theta}$. 
+\begin{enumerate}%\addtolength{\itemsep}{-4pt}
+\item Considérons la relation d'équivalence $\theta:=~\simeq_{\mod 4}$ sur $S:=\mathbb{N}$, déjà vue en cours. Donnez $C$ pour cette relation (en utilisant la notation concise pour les classes d'équivalences que vous voulez écrire). Donnez les valeurs de $f(0)$, $f(42)$, et $f(43)$.
+\end{enumerate}
+\textbf{(Facultatif)} Reprenons $S$, $T$ et $\theta$  quelconques.
+\begin{enumerate}
+\item [2.]
+Informellement, dites si $f$ est surjective (toujours? parfois? dans quels cas?)
+\item[3.]
+Informellement, dites si  $f$ est injective  (toujours? parfois? dans quels cas?)
+\end{enumerate}
+
+
+
+\exercice
+ Soit   la suite $\tuple{D(n)}_{n\in\{2^i\mid i\in \mathbb{N}\}}$ définie par la règle de récurrence suivante:
+ $$\begin{cases}
+D(1)=7\\
+D(n) = 2 * D( \frac{n}{5}) + n \quad \forall n \in \{2^i\mid i\in \mathbb{N}^*\}  
+\end{cases}$$
+Cette suite a une forme typique de calcul de temps d'exécution d'un algorithme! vous en verrez de semblables en IFT-3001.
+
+\begin{enumerate}
+ \item \textbf{(Facultatif)} Donnez les cinq premiers termes de la suite (pour pouvoir vérifier votre réponse à la prochaine sous-question!)
+ \item En utilisant la méthode des substitutions à rebours, déduisez le terme général de la suite.  (Une méthode complémentaire devra être utilisée à la fin.) Ne laissez pas $n$ en exposant dans votre réponse s'il y a  moyen de le simplifier pour qu'il ne s'y retrouve plus!
+\item 
+Au début de la section 2.6 des notes de cours, on affirme que la méthode d'approximation par une intégrale est typiquement utilisée après avoir effectué une substitution à rebours.  Pourrions-nous/devrions-nous utiliser la méthode d'approximation par une intégrale pour borner la valeur de cette suite? Justifiez brièvement (une phrase suffit).
+
+\end{enumerate}
+
+\exercice
+Trouvez le terme général avec Wolfram Alpha de la suite $\langle b_n\rangle_{n\in\ensembleN}$ dont la définition par récurrence est\\
+$$\left\{
+\begin{array}{cclr}
+  b_0 & = & 4 &  \\
+  b_n & = &  3 \,b_{n-1}\,+\,n\,+4 & \, \forall n\in\ensembleN^\ast 
+  %format wolframalpha : b(0)=4, b(n)= 3b(n-1) +n +4
+\end{array}\right.$$
+%
+\\
+et démontrez que cette réponse est la bonne en utilisant la technique proposée dans le chapitre 2. 
+ 
+\reponse{
+}
+
+
+\exercice
+En n'utilisant ni la technique de substitution à rebours, ni la démonstration par induction, mais plutôt un théorème du manuel, trouvez le terme général\footnote{Soyez futés, confrontez votre réponse finale avec quelques valeurs $b_0$, $b_1$, $b_2$, $b_3$, $b_4$ calculées directement!} de la suite $\langle b_n\rangle_{n\in\ensembleN}$ dont la
+définition
+par récurrence est
+$$\left\{
+\begin{array}{cclr}
+  b_0 & = & 4 &  \\
+  b_n & = &  b_{n-1}\,+\,2n\,+ 4 & \, \forall n\in\ensembleN^\ast 
+\end{array}%
+\right.$$
+
+\reponse{
+}
+\exercice
+\rouge{Exercice sur les graphes, à venir. CRÉEZ VOTRE ÉQUIPE EN ATTENDANT!}
+
+\reponse{
+}
+
+\exercice
+\textbf{(Facultatif)} En utilisant la méthode par série génératrice, trouvez le terme général de la suite suivante:
+$\\ \left\{
+\begin{array}{cclr}
+  b_0 & = & 2 \,\, &  \\
+  b_n & = & 2\,b_{n-1}\,+\,3n\,-\,4& \, \forall n\in\ensembleN^\ast \\
+  %
+\end{array}%
+\right.$  \\[1mm]
+ 
+\reponse{
+}
+
+
+
+\vfill
+\vfill\vfill\vfill\vfill\vfill\vfill\vfill
+
+\end{document}
+
