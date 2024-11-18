@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=.5in]{geometry}
+\usepackage{array} 
+\newcommand{\tuple}[1]{\ensuremath{\left\langle #1 \right\rangle}}
+\newcommand{\pare}[1]{ \left( #1 \right) }
+
+\begin{document}
+    
+\textbf{Exercice 1}
+
+\vspace{0.5cm}
+
+\textbf{Démonstration} Selon le théorème 1.5.6 pour deux ensembles dénombrables leur produit cartésien est aussi dénombrable.
+
+Montrons tout d'abord la dénombrabilité de $\mathbb{Z}_{< 0}$ alors.
+
+On sait que les entiers sont dénombrables par théorème 1.5.7. Donc, c'est vrai aussi que
+
+$$|\mathbb{Z}| \leq |\mathbb{N}| \hspace{2 cm}
+\tuple{ \text{ réflexivité de définition 1.5.11 } } $$
+
+
+C’est clair que les entiers négatifs font partie des entiers donc par proposition 1.5.14 il y a une fonction injective de $\mathbb{Z}_{< 0}$ 
+
+vers $\mathbb{Z}$. Donc,
+
+$$
+|\mathbb{Z}_{< 0}| \leq |\mathbb{Z}| \hspace{2 cm}
+\tuple{ \text{ définition 1.5.11 } }
+$$
+
+
+Par la transitivé de définition 1.5.11 on peut conclure que
+
+$$
+|\mathbb{Z}_{< 0}| \leq |\mathbb{N}| \hspace{2 cm}
+\tuple{ \text{ car } |\mathbb{Z}| \leq |\mathbb{N}| \land  |\mathbb{Z}_{< 0}| \leq |\mathbb{Z}| \hspace{.1cm} }
+$$
+
+
+Maintenant, $\mathbb{N}$ est la plus petite cardinalité, donc, $\mathbb{Z}_{< 0}$ comme ensemble infini on a
+
+$$
+|\mathbb{Z}_{< 0}| \geq |\mathbb{N}| \hspace{2 cm}
+\tuple{ \text{ Théorème 1.5.15 } }
+$$
+
+Grâce à Bernstein-Schroeder ça implique
+
+$$
+|\mathbb{Z}_{< 0}| = |\mathbb{N}| \hspace{2 cm}
+\tuple{\text{ car } |\mathbb{Z}_{<0}| \leq |\mathbb{N}| \land  |\mathbb{Z}_{<0} \geq |\mathbb{N}| \hspace{.1cm} }
+$$
+
+Donc, nous avons montré que $\mathbb{Z}_{< 0}$ est dénombrable et on sait que $\mathbb{N}$ est dénombrable. Ainsi leur produit cartésien est 
+
+aussi dénombrable
+$$
+|\mathbb{Z}_{<0} \times \mathbb{N}| = |\mathbb{N}| \hspace{2 cm}
+\tuple{ \text{ par Théorème 1.5.6 } }
+$$
+
+$\hfill \square$
+
+\end{document}
