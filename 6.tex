@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{array} 
+\newcommand{\tuple}[1]{\ensuremath{\left\langle #1 \right\rangle}}
+
+
+\begin{document}
+
+\textbf{Exercice 6}
+
+\vspace{0.5cm}
+
+Commençons par calculer $b_n - b_{n-1} = \tuple{2n + 4}_{n \in \mathbb{N}^{*}} = \tuple{f(n)}_{n \in \mathbb{N}^{*}}$ et calculons ensuite $f(0) = 2 \cdot 0 + 4 = 4 = b_0$. Ainsi, $f(n) = 2n + 4$ est une suite arithmétique avec un premier terme $4$ et une différence $2$. Si nous appliquons ensuite le Théorème 2.4.6, nous obtenons
+
+\[
+b_n = \frac{(4 + 4 + 2n)(n+1)}{2} \hspace{2cm} \tuple{ \text{ par le théorème 2.4.6 } }
+\]
+
+\[
+= \frac{2n^2 + 10n + 8}{2} \hspace{2cm} \tuple{ \text{ arithmétique  }}
+\]
+
+\[
+= n^2 + 5n + 4 \hspace{2.4cm} \tuple{ \text{ arithmétique }}
+\]
+
+Calculons maintenant quelques termes à l'aide de la relation et de la forme géneral. 
+
+\[
+b_1 = 4 + 2 \cdot 1 + 4 = 10  \hspace{2cm} b_1 = 1^2 + 5 \cdot 1 + 4 = 10
+\]
+
+\[
+b_2 = 10 + 2 \cdot 2 + 4 = 18  \hspace{2cm} b_2 = 2^2 + 5 \cdot 2 + 4 = 18
+\]
+
+\[
+b_3 = 18 + 2 \cdot 3 + 4 = 28  \hspace{2cm} b_3 = 3^2 + 5 \cdot 3 + 4 = 28
+\]
+
+\[
+b_4 = 28 + 2 \cdot 4 + 4 = 40  \hspace{2cm} b_4 = 4^2 + 5 \cdot 4 + 4 = 40
+\]
+
+Ainsi, notre forme général $b_n = n^2 + 5n + 4$ semble être correcte.
+
+
+
+\end{document}
