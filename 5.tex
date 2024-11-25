@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{array} 
+\newcommand{\tuple}[1]{\ensuremath{\left\langle #1 \right\rangle}}
+
+
+\begin{document}
+
+\textbf{Exercice 5}
+
+\vspace{0.5cm}
+On constate que $\frac{27}{4}3^n - \frac{1}{2}n - \frac{11}{4}$ est le terme générale de la suite $\tuple{b_n}_{n \in \mathbb{N}}$.
+
+\vspace{0.5cm}
+
+\textbf{Démonstration} On le démontrera par induction. Et pour ce faire, Définissons le prédicat.
+
+$$P(n): b_n = \frac{27}{4}3^n - \frac{1}{2}n - \frac{11}{4} $$ 
+
+si l'on peut démontrer 
+
+$$P(0) \land (\forall n \in \mathbb{N}^{*} \mid P(n-1) \implies P(n)),$$
+
+alors le principe d'induction mathématique impliquera $(\forall n \in \mathbb{N} \mid P(n))$. À cette fin,
+\vspace{0.5cm}
+
+\textbf{Case de base: montrons} $P(0). \hspace{4cm} \tuple{ \text{ montrons } b_0 = \frac{27}{4}3^0 - \frac{1}{2}\cdot 0 - \frac{11}{4}}$
+
+Et en effet,
+
+$$ \frac{27}{4}3^0 - \frac{1}{2}\cdot 0 - \frac{11}{4} = 4 = b_0$$
+
+Donc on a bien que $P(0)$ est vrai.
+
+\vspace{0.5cm}
+\textbf{Étape d'induction: montrons} $(\forall n \in \mathbb{N}^{*} \mid P(n-1) \implies P(n))$
+
+Soit $n \in \mathbb{N}^{*}$ et supposons que $P(n-1)$ est vrai. Que,
+
+$$ \frac{27}{4}3^{n-1} - \frac{1}{2}(n-1) - \frac{11}{4} \hspace{5cm} \tuple{ \text{ et montrons } P(n)} $$
+
+Puis par definition, 
+
+$$ b_n = 3b_{n-1} + n + 4 $$
+$$ = 3(\frac{27}{4}3^{n-1} - \frac{1}{2}(n-1) - \frac{11}{4})+ n + 4 \hspace{2cm} \tuple{ \text{ car } P(n-1) \text{ est vrai }}$$
+$$ = \frac{27}{4}\cdot3\cdot3^{n-1} - \frac{3}{2}n + \frac{3}{2} - \frac{33}{4} + n + 4 \hspace{2cm} \tuple{ \text{ Simplification algébrique. } }$$
+$$ = \frac{27}{4}3^n - \frac{1}{2}n + \frac{3}{2} - \frac{33}{4} + 4 \hspace{2cm} \tuple{ \text{ Simplification algébrique. } }$$
+$$ = \frac{27}{4}3^n - \frac{1}{2}n + \frac{11}{2} - \frac{33}{4} \hspace{2cm} \tuple{ \text{ Simplification algébrique. } }$$
+$$ = \frac{27}{4}3^n - \frac{1}{2}n - \frac{11}{4} \hspace{2cm} \tuple{ \text{ Simplification algébrique. } }$$
+$$ = P(n) \hspace{2cm} \tuple{ \text{ définition du prédicat } }$$
+
+Puisque $n$ a été choisi arbitrairement, nous pouvons conclure que $(\forall n \in \mathbb{N}^{*} \mid P(n-1) \implies P(n))$ et 
+
+donc par le principe de l'induction mathématique $\frac{27}{4}3^n - \frac{1}{2}n - \frac{11}{4}$ est le terme générale de la suite $\tuple{b_n}_{n \in \mathbb{N}}$.
+
+\vspace{0.5cm}
+
+$\hfill \square$
+
+\end{document}
