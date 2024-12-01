@@ -10,90 +10,59 @@
     
 \textbf{Exercice 4}
 
-\vspace{0.5cm}
+\vspace{0.3cm}
 2.
-\[
-D(n) = 2D\pare{\frac{n}{5}} + n 
-\hspace{2cm} \tuple{ \text{ par substition } }
-\]
-
-\[
-= 2\pare{2D\pare{\frac{n}{5^2}} + \frac{n}{5}} + n 
-\hspace{2cm} \tuple{ \text{ arithmétique  }}
-\]
-
-\[
-= 2^2D\pare{\frac{n}{5^2}} + \frac{2n}{5} + n 
-\hspace{2cm} \tuple{ \text{ arithmétique  }}
-\]
-
-\[
-= 2^2\pare{2D\pare{\frac{n}{5^3}} + \frac{2}{5^2}} + \frac{2n}{5} + n 
-\hspace{2cm} \tuple{ \text{ arithmétique  }}
-\]
-
-\[
-= 2^3D\pare{\frac{n}{5^3}} + \frac{2^2n}{5^2} + \frac{2n}{5} + n 
-\hspace{2cm} \tuple{ \text{ arithmétique  }}
-\]
-
-\[
-\vdots
-\]
-
-
-\[
-= 2^3D\pare{\frac{n}{5^3}} + n\pare{\frac{2}{5}}^2 + n\pare{\frac{2}{5}}^1 + n\pare{\frac{2}{5}}^0
-\hspace{2cm} \tuple{ \text{ arithmétique  }}
-\]
-
-\[
-= 2^iD\pare{\frac{n}{5^i}} + n\pare{\frac{2}{5}}^{i - 1} + ... + n\pare{\frac{2}{5}}^1 + n\pare{\frac{2}{5}}^0
-\hspace{2cm} \tuple{ \text{ arithmétique  }}
-\]
-
-\[
-= 2^iD\pare{\frac{n}{5^i}} + n\sum_{j=0}^{i-1} \left(\frac{2}{5}\right)^i
-\hspace{2cm} \tuple{ \text{ arithmétique  }}
-\]
-
-\[
-= 2^{\log_{5}(n)}D\pare{1} + n \pare{\frac{1 - \pare{\frac{2}{5}}^{(i+1) - 1}}{1 - \frac{2}{5}}}
-\hspace{2cm} \tuple{ \text{ arithmétique  }}
-\]
-
-\[
-= 2^{\log_{5}(n)}D\pare{1} + n \pare{\frac{1 - \pare{\frac{2}{5}}^{i}}{\frac{3}{5}}}
-\hspace{2cm} \tuple{ \text{ arithmétique  }}
-\]
-
-\[
-= 2^{\log_{5}(n)}D\pare{1} + {\frac{5}{3}} n \pare{1 - \pare{\frac{2}{5}}^{\log_{5}(n)}}
-\hspace{2cm} \tuple{ \text{ arithmétique  }}
-\]
-
-\[
-= 7n^{\log_{5}(2)} +
+\begin{align*}
+D(n) &= 2D\pare{\frac{n}{5}} + n 
+&\tuple{ \text{ Définition de }  D(n), n \in \{ 3i | i \in \mathbb{N}^* \}  }\\
+&= 2\pare{2D\pare{\frac{n}{5^2}} + \frac{n}{5}} + n 
+&\tuple{ \mbox{ Substitution } D\pare{\frac{n}{5}} = 2D\pare{\frac{n}{5^2}} + \frac{n}{5}  }\\
+&= 2^2D\pare{\frac{n}{5^2}} + \frac{2n}{5} + n 
+&\tuple{ \text{ arithmétique  }}\\
+&= 2^2\pare{2D\pare{\frac{n}{5^3}} + \frac{2}{5^2}} + \frac{2n}{5} + n 
+&\tuple{ \text{ Substitution }  D\pare{\frac{n}{5^2}} = 2D\pare{\frac{n}{5^3}} + \frac{n}{5^2} }\\
+&= 2^3D\pare{\frac{n}{5^3}} + \frac{2^2n}{5^2} + \frac{2n}{5} + n 
+&\tuple{ \text{ arithmétique  }}\\
+&= 2^3D\pare{\frac{n}{5^3}} + n\pare{\frac{2}{5}}^2 + n\pare{\frac{2}{5}}^1 + n\pare{\frac{2}{5}}^0
+&\tuple{ \text{ arithmétique  }}\\
+&\vdots &\tuple{ \forall i = 1, 2, 3, \dots, \text{ On divise par 5 jusqu'à } \frac{n}{5^i} = 1. }
+\\
+&\vdots &\tuple{ i \geq 1 \iff \frac{n}{5^i} \geq 1 \iff n \geq 5^i \text{ et, } \log_5 n = \log_5 5^i = i}
+\\
+&= 2^iD\pare{\frac{n}{5^i}} + n\pare{\frac{2}{5}}^{i - 1} + \cdots + n\pare{\frac{2}{5}}^1 + n\pare{\frac{2}{5}}^0
+&\tuple{ \text{ Donc, } i = 1, \dots, \log_5 n. }
+\\
+&= 2^{\log_{5}(n)}D\pare{1} + n\pare{\frac{2}{5}}^{i - 1} + \cdots + n\pare{\frac{2}{5}}^1 + n\pare{\frac{2}{5}}^0
+&\tuple{ \text{ avec } [ i := \log_5 n ] }
+\\
+&= 2^{\log_{5}(n)}D\pare{1} + n\sum_{j=0}^{i-1} \left(\frac{2}{5}\right)^j
+&\tuple{ \text{ notation sigma }}
+\\
+&= 2^{\log_{5}(n)}D\pare{1} + n \pare{\frac{1 - \pare{\frac{2}{5}}^{i}}{1 - \frac{2}{5}}}
+&\tuple{ \text{ Théorème 2.4.7  }}
+\\
+&= 2^{\log_{5}(n)}D\pare{1} + n \pare{\frac{1 - \pare{\frac{2}{5}}^{i}}{\frac{3}{5}}}
+&\tuple{ \text{ arithmétique  }}
+\\
+&= 2^{\log_{5}(n)}D\pare{1} + {\frac{5}{3}} n \pare{1 - \pare{\frac{2}{5}}^{\log_{5}(n)}}
+&\tuple{ \text{ arithmétique  }}
+\\
+&= D(1)n^{\log_{5}(2)} +
 {\frac{5}{3}} n \pare{1 - \pare{\frac{n^{\log_{5}(2)}}{n}}}
-\hspace{2cm} \tuple{ \text{ arithmétique  }}
-\]
-
-\[
-= 7n^{\log_{5}(2)} +
+&\tuple{ a^{\log_b(x)} = x^{\log_b(a)} \text{ dans notre cas } 2^{\log_5(n)} = n^{\log_5(2)} }
+\\
+&= 7n^{\log_{5}(2)} +
 {\frac{5}{3}} n \pare{ \frac{n - \pare{ n^{ \log_{5}(2) } }}{n} }
-\hspace{2cm} \tuple{ \text{ arithmétique  }}
-\]
-
-\[
-= 7n^{\log_{5}(2)} +
+&\tuple{ \text{ arithmétique et substitution de la condition initiale }}
+\\
+&= 7n^{\log_{5}(2)} +
 {\frac{5}{3}} \pare{ n - n^{ \log_{5}(2) } } 
-\hspace{2cm} \tuple{ \text{ arithmétique  }}
-\]
+&\tuple{ \text{ arithmétique  }}
+\\
+&= \frac{16}{3}n^{\log_{5}(2)} + {\frac{5}{3}}n
+&\tuple{ \text{ arithmétique  }}
+\end{align*}
 
-\[
-= \frac{16}{3}n^{\log_{5}(2)} + {\frac{5}{3}}n
-\hspace{2cm} \tuple{ \text{ arithmétique  }}
-\]
-
+3. 
 
 \end{document}
