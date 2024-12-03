@@ -26,13 +26,15 @@ A) a)
 
 l'antisymétrie est trivialement vraie car $\mathcal{R}$ ne contient pas $\tuple{4,1}, \tuple{2,3},$ et $\tuple{5,4}$. Pour les paires identitaires 
 
-$\tuple{1, 1}, \tuple{2, 2}, \tuple{3, 3}, \tuple{4, 4}, \tuple{5, 5} \in \mathcal{R}$, l'antisymétrie est évidemment satisfaite. Cependant, $\mathcal{R}$ n'est pas transitive car 
+$\tuple{0, 0},\tuple{1, 1}, \tuple{2, 2}, \tuple{3, 3}, \tuple{4, 4}, \tuple{5, 5} \in \mathcal{R}$, l'antisymétrie est évidemment satisfaite. Cependant, $\mathcal{R}$ n'est pas transitive 
+
+car 
 
 $$ \tuple{1,4} \land \tuple{4,5} \in \mathcal{R}$$
 
 et pourtant $ \tuple{1,5} \notin \mathcal{R}.$ Ainsi, ce n'est pas un ordre partiel, et nous ne pouvons pas construire un diagramme de Hasse.
 
-\vspace{0.5cm}
+\vspace{0.3cm}
 
 2)
 Ceci n'est pas une relation d'équivalence non plus car, comme nous l'avons vu en 1), elle n'est pas transitive. De 
@@ -41,26 +43,32 @@ plus, elle n'est pas symétrique, ce qui est également requis pour une relation
 
 $$ \tuple{1,4} \in \mathcal{R} \land \tuple{4,1} \notin \mathcal{R}$$
 
-\vspace{0.5cm}
+\vspace{0.3cm}
 
-b) 1) Calculons $\mathcal{R} \circ \mathcal{R}$ en ignorant les paires symétriques puisqu'elles sont redondantes. Nous obtenons 
+b) 1) Calculons 
 
-$$ \tuple{1,4} \circ \tuple{4,5} = \tuple{1,5} $$
+$$ \mathcal{R} = I_{\{0,1,2,3,4,5\}} \cup \{ \tuple{1,4},\tuple{3,2},\tuple{4,5} \}$$
+$$\mathcal{R}^2 = I_{\{0,1,2,3,4,5\}} \cup\{ \tuple{1,4} \circ \tuple{4,5} \} = I_{\{0,1,2,3,4,5\}} \cup \{ \tuple{1,5} \}$$
+$$\mathcal{R}^3 =  I_{\{0,1,2,3,4,5\}} \cup\{ \tuple{1,4} \circ \tuple{4,5}, \tuple{1,1} \circ \tuple{1,5} \} = I_{\{0,1,2,3,4,5\}} \cup\{ \tuple{1,5} ,\tuple{1,1} \}= \mathcal{R}^2$$
+$$\mathcal{R}^4 =  \mathcal{R}^2$$
+$$\text{etc}$$
 
-Ainsi, $$ \mathcal{R} \circ \mathcal{R} = \{ \tuple{1,5} \}$$
+Ainsi, $$ \mathcal{R}^+ = \mathcal{R} \cup \mathcal{R}^2 \cup \mathcal{R}^3 ...$$
+$$ = I_{\{0,1,2,3,4,5\}} \cup \{ \tuple{1,4},\tuple{3,2},\tuple{4,5} \} \cup \{ \tuple{1,5} = I_{\{0,1,2,3,4,5\}} \cup \{ \tuple{1,4},\tuple{3,2},\tuple{4,5} , \tuple{1,5}\}.$$
 
-Par consequant $\mathcal{R}^+ = \mathcal{R} \cup \mathcal{R}^2 $ car ce sont les seules paires pour lesquelles la transitivité pouvait échouer. Nous avons 
+Puisque la fermeture ajoute les paires pour lesquelles le transitivité pourrait échouer, nous avons maintenant une relation
 
-maintenant un ordre partiel. Construisons le diagramme de Hasse.
+qui est également transitive. Donc, $ \mathcal{R}^+ $ est un ordre partiel. Construisons le diagramme de Hasse.
 
 \begin{center}
     \begin{minipage}{0.3\textwidth}
         \begin{tikzpicture}
-            \node[circle, draw, minimum size=0.7cm] (n1) at (0, -0.5) {1};
-            \node[circle, draw, minimum size=0.7cm] (n4) at (0, 1) {4};
-            \node[circle, draw, minimum size=0.7cm] (n5) at (0, 2.5) {5};
-            \node[circle, draw, minimum size=0.7cm] (n3) at (2, -0.5) {3};
-            \node[circle, draw, minimum size=0.7cm] (n2) at (2, 1) {2};
+            \node[] (n1) at (0, -0.5) {1};
+            \node[] (n4) at (0, 1) {4};
+            \node[] (n5) at (0, 2.5) {5};
+            \node[] (n3) at (2, -0.5) {3};
+            \node[] (n2) at (2, 1) {2};
+            \node[] (n0) at (4,-0.5) {0};
 
             \draw[->, thick] (n1) -- (n4);
             \draw[->, thick] (n4) -- (n5);
@@ -76,31 +84,33 @@ la symétrie échoue toujours.
 \vspace{0.3cm}
 
 c) 1)
-Calculons l'inverse de $\mathcal{R}^{+}$ nous ignorons encore une fois les paires d'identités car elles servent de leur propre inverse
+Calculons l'inverse de $\mathcal{R}^{+}$ nous ignorons d'identités car elles servent de leur propre inverse
 $$ \{ \tuple{1,4}^{-1},\tuple{3,2}^{-1},\tuple{4,5}^{-1},\tuple{1,5}^{-1} \} = 
 \{ \tuple{4,1},\tuple{2,3},\tuple{5,4},\tuple{5,1} \}
 $$
 
 Donc,
-$$ \mathcal{R}^{+} \cup (\mathcal{R}^{+})^{-1} = I_{\{1,2,3,4,5\}}\cup \{ \tuple{1,4},\tuple{3,2},\tuple{4,5},\tuple{1,5} 
+$$ \mathcal{R}^{+} \cup (\mathcal{R}^{+})^{-1} = I_{\{0,1,2,3,4,5\}}\cup \{ \tuple{1,4},\tuple{3,2},\tuple{4,5},\tuple{1,5} 
 \tuple{4,1},\tuple{2,3},\tuple{5,4},\tuple{5,1} \}.
 $$
 
 Conduisant clairement à un échec pur et simple de l'antisymétrie, $\mathcal{R}^{+} \cup (\mathcal{R}^{+})^{-1}$ n'est donc pas un ordre partiel.
 
-2) Nous avons cependant maintenant une relation d'équivalence. $\mathcal{R}^{+} \cup (\mathcal{R}^{+})^{-1}$ partitions $ \{ 1,2,3,4,5 \}$ comme
-$$\{ \{ 1,4,5 \} ,\{ 2,3 \} \}$$
+2) Nous avons cependant maintenant une relation d'équivalence. $\mathcal{R}^{+} \cup (\mathcal{R}^{+})^{-1}$ partitions $ \{ 0,1,2,3,4,5 \}$ comme
+$$\{ \{ 1,4,5 \} ,\{ 2,3 \} ,\{0\}\}$$
 
 
 effectivement, en considérant les éléments comme équivalents à l'intérieur des sous-ensembles. Nous pouvons représenter 
 
-les classes comme $ [1]_{\mathcal{R}^{+} \cup (\mathcal{R}^{+})^{-1}} $ et $ [2]_{\mathcal{R}^{+} \cup (\mathcal{R}^{+})^{-1}} $
+les classes comme $[0]_{\mathcal{R}^{+} \cup (\mathcal{R}^{+})^{-1}}, [1]_{\mathcal{R}^{+} \cup (\mathcal{R}^{+})^{-1}} $ et $ [2]_{\mathcal{R}^{+} \cup (\mathcal{R}^{+})^{-1}} $
 
 \vspace{0.3cm}
 
 d) Si l'on reprenait la fermeture transitive, les images des paires composés avec l'ensemble lui-même conduiraient au 
 
-même ensemble puisque la relation est déjà transitive. Cette relation est donc en fait la même que celle de c) 
+même ensemble puisque la relation est déjà transitive. En effet $(\mathcal{R}^{+} \cup (\mathcal{R}^{+})^{-1})^2 \subset (\mathcal{R}^{+} \cup \mathcal{R}^{+})^{-1}$ et 
+
+$(\mathcal{R}^{+} \cup (\mathcal{R}^{+})^{-1})^3 = (\mathcal{R}^{+} \cup \mathcal{R}^{+})^{-1}$.  Cette relation est donc en fait la même que celle de c) 
 
 $$(\mathcal{R}^{+} \cup (\mathcal{R}^{+})^{-1})^+ = \mathcal{R}^{+} \cup (\mathcal{R}^{+})^{-1}$$
 
