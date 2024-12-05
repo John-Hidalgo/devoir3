@@ -1,14 +1,14 @@
 \documentclass{article}
-\usepackage[margin=.5in]{geometry}
+\usepackage[margin=.3in]{geometry}
 \usepackage{tikz}
 \usetikzlibrary{shapes, arrows.meta} 
 \usepackage{amsmath}
+\newcommand{\tuple}[1]{\ensuremath{\left\langle #1 \right\rangle}}
 
 \begin{document}
 
 \textbf{Exercice 7}
 
-\vspace{0.5cm}
 A)
 \[
 \left(
@@ -28,7 +28,7 @@ A)
 \end{array}
 \right)
 \]
-\vspace{0.5cm}
+\vspace{0.1cm}
 
 B)
 Avec les labels pour les sommets comme $v_i$ pour les faces comme $f_i$ et les arêtes comme $e_i$, où $0 \leq v_i \leq 17$, $1 \leq f_i \leq 9$, 
@@ -111,8 +111,32 @@ $$|V(G_5)| + |F(G_5)|- |E(G_5)| = 18 + 9 - 25= 2$$
 \vspace{4.5cm}
 
 C) (i) $G_0$ est hamiltonien et pour $i>0$ impair $G_i$ et hamiltonien.
+$G_1$ est hamiltonien, en effet $\tuple{v_1,v_2,v_3,v_4,v_5,v_0,v_1}.$ 
 
-(ii) $G_0$ et $G_1$ sont eulériens. Cependant, pour $i>1$  le sommet $v_4$ aura un nombre impair d'arêtes et ne peut donc pas 
+Maintenant, tout cycle hamiltonien doit nécessairement éviter $e_3$. Cela signifie qu'ils doivent tous contenir la chaîne $\tuple{v_5,v_0,v_1,v_2,v_3}$ 
+
+ou $\tuple{v_3,v_2,v_1,v_0,v_5}$. 
+
+Pour $n$ pair, essayons de construire un cycle pour les 3 plus grands sommets par indice. La chaîne $\tuple{v_{3n-3},v_{3n-2},v_{3n-1},...,v_3}$ 
+
+saute $v_{3n+2}$ tandis que la chaîne $\tuple{v_{3n-3},v_{3n+2},v_{3n-1},...,v_3}$ saute $v_{3n-2}$. On peut raisonner de manière similaire pour les chaînes 
+
+$\tuple{v_{3n+1},...,v_5}$ et ainsi, il n'y a pas de cycle hamiltonien pour $n$ pair.
+Pour $n$ impair, construisons un cycle de manière récursive. 
+
+On a la chaîne
+
+$$C = \tuple{v_{3n + 1},v_{3n + 2},v_{3n - 3},v_{3(n-1) + 1},v_{3(n-1) - 2},v_{3(n-1) - 1},v_{3(n-2) + 1}, ... , v_4,v_5,v_0}$$
+
+En remarquant que cela est possible car $n-1$ est pair. Maintenant, on a également la chaîne 
+
+$$C^{\prime} = \tuple{v_{3n},v_{3(n-1) + 2},v_{3(n-1)},v_{3(n-2) + 2}, ...,v_8, v_3,v_2,v_1}$$
+
+Par conséquent, $C \circ (C^{\prime})^{-1}$ est un cycle hamiltonien.
+
+
+
+(ii) $G_0$ est eulérien. Cependant, pour $i>0$  le sommet $v_4$ aura un nombre impair d'arêtes et ne peut donc pas 
 
 être eulérien.
 
@@ -139,6 +163,7 @@ d'arêtes que $v_0$
 (xi) oui
 
 D)non non oui
+
 
     
 
