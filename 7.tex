@@ -60,9 +60,9 @@ $$|V(G_5)| + |F(G_5)|- |E(G_5)| = 18 + 9 - 25= 2$$
             \node[circle, draw, minimum size=0.7cm] (n13) at (4, 1) {$v_{13}$};
             \node[circle, draw, minimum size=0.7cm] (n12) at (4, -1) {$v_{12}$};
             %V(G5)
-            \node[circle, draw, minimum size=0.7cm] (n17) at (6, 3) {$v_{17}$};
+            \node[circle, draw, minimum size=0.7cm] (n15) at (6, 3) {$v_{15}$};
             \node[circle, draw, minimum size=0.7cm] (n16) at (6, 1) {$v_{16}$};
-            \node[circle, draw, minimum size=0.7cm] (n15) at (6, -1) {$v_{15}$};
+            \node[circle, draw, minimum size=0.7cm] (n17) at (6, -1) {$v_{17}$};
             %E(G0)
             \draw[-, thick] (n0) -- (n1) node[midway, below] {$e_1$};
             \draw[-, thick] (n1) -- (n2) node[midway, above] {$e_2$};
@@ -90,10 +90,10 @@ $$|V(G_5)| + |F(G_5)|- |E(G_5)| = 18 + 9 - 25= 2$$
             \draw[-, thick] (n12) -- (n11) node[midway, below] {$e_{21}$};
             \draw[-, thick] (n10) -- (n13) node[midway, above] {$e_{19}$};
             %E(G5) - E(G4)
-            \draw[-, thick] (n14) -- (n17) node[midway, above] {$e_{22}$};
+            \draw[-, thick] (n14) -- (n15) node[midway, above] {$e_{22}$};
             \draw[-, thick] (n17) -- (n16) node[midway, right] {$e_{23}$};
             \draw[-, thick] (n16) -- (n15) node[midway, right] {$e_{24}$};
-            \draw[-, thick] (n15) -- (n12) node[midway, below] {$e_{25}$};
+            \draw[-, thick] (n17) -- (n12) node[midway, below] {$e_{25}$};
             % face labels
             \node at (-5, 1) {$f_1$};
             \node at (-3, 1) {$f_2$};
@@ -110,14 +110,13 @@ $$|V(G_5)| + |F(G_5)|- |E(G_5)| = 18 + 9 - 25= 2$$
 
 \vspace{4.5cm}
 
-C) (i) $G_0$ est hamiltonien et pour $i>0$ impair $G_i$ et hamiltonien.
-$G_1$ est hamiltonien, en effet $\tuple{v_1,v_2,v_3,v_4,v_5,v_0,v_1}.$ 
+C) (i) $G_0$ est hamiltonien. $G_1$ est hamiltonien, en effet $\tuple{v_1,v_2,v_3,v_4,v_5,v_0,v_1}.$ C'est clair que tout cycle hamiltonien doit 
 
-Maintenant, tout cycle hamiltonien doit nécessairement éviter $e_3$. Cela signifie qu'ils doivent tous contenir la chaîne $\tuple{v_5,v_0,v_1,v_2,v_3}$ 
+nécessairement éviter $e_3$ car sinon cela conduirait à la répétition d'un des sommets de $G_0$. Cela signifie qu'ils doivent tous 
 
-ou $\tuple{v_3,v_2,v_1,v_0,v_5}$. 
+contenir la chaîne $\tuple{v_5,v_0,v_1,v_2,v_3}$ ou $\tuple{v_3,v_2,v_1,v_0,v_5}$. 
 
-Pour $n$ pair, essayons de construire un cycle pour les 3 plus grands sommets par indice. La chaîne $\tuple{v_{3n-3},v_{3n-2},v_{3n-1},...,v_3}$ 
+Pour $n > 0$ pair, essayons de construire un cycle pour les 3 plus grands sommets par indice. La chaîne $\tuple{v_{3n-3},v_{3n-2},v_{3n-1},...,v_3}$ 
 
 saute $v_{3n+2}$ tandis que la chaîne $\tuple{v_{3n-3},v_{3n+2},v_{3n-1},...,v_3}$ saute $v_{3n-2}$. On peut raisonner de manière similaire pour les chaînes 
 
@@ -126,46 +125,42 @@ Pour $n$ impair, construisons un cycle de manière récursive.
 
 On a la chaîne
 
-$$C = \tuple{v_{3n + 1},v_{3n + 2},v_{3n - 3},v_{3(n-1) + 1},v_{3(n-1) - 2},v_{3(n-1) - 1},v_{3(n-2) + 1}, ... , v_4,v_5,v_0}$$
+$$C = \tuple{v_{3n + 1},v_{3n + 2},v_{3n - 3},v_{3(n-1) + 1},v_{3(n-1) - 2},v_{3(n-1) - 1},v_{3(n-2) + 1}, ... , v_4,v_5,v_0,v_1}$$
 
-En remarquant que cela est possible car $n-1$ est pair. Maintenant, on a également la chaîne 
+En remarquant que cela est possible car $n-1$ est pair. On a également la chaîne 
 
-$$C^{\prime} = \tuple{v_{3n},v_{3(n-1) + 2},v_{3(n-1)},v_{3(n-2) + 2}, ...,v_8, v_3,v_2,v_1}$$
+$$C^{\prime} = \tuple{v_{3n+1},v_{3n},v_{3(n-1) + 2},v_{3(n-1)},v_{3(n-2) + 2}, ...,v_8, v_3,v_2,v_1}$$
 
-Par conséquent, $C \circ (C^{\prime})^{-1}$ est un cycle hamiltonien.
+Par conséquent, $C \circ (C^{\prime})^{-1}$ est un cycle hamiltonien. Donc pour $n = 0$ et pour tout $n$ impair $G_n$ est hamiltonien.
 
+\vspace{0.2cm}
 
-
-(ii) $G_0$ est eulérien. Cependant, pour $i>0$  le sommet $v_4$ aura un nombre impair d'arêtes et ne peut donc pas 
+(ii) $G_0$ est eulérien. Cependant, pour $i>1$  le sommet $v_4$ aura un nombre impair d'arêtes et ne peut donc pas 
 
 être eulérien.
+\vspace{0.2cm}
 
 (iii) $G_0$ est complet mais pour $i > 0$, $G_i$ sont pas complets car nous pouvons voir que le sommet $v_4$ n'a 
 
 aucun arêtes sur aucun des sommets de $G_0$
+\vspace{0.2cm}
 
-(iv)$G_0$ est regulier mais pour $i > 0$, $G_i$ sont pas reguliers car nous pouvons voir $v_1$ et $v_2$  n'ont pas le même numéro 
+(iv) $G_0$ est regulier mais pour $i > 0$, $G_i$ sont pas reguliers car nous pouvons voir $v_1$ et $v_2$  n'ont pas le même numéro 
 
 d'arêtes que $v_0$
+\vspace{0.2cm}
 
-(v) Aucun des graphes n'est biparti
+(v) Aucun des graphes n'est biparti. Montrons cela par induction. $G_0$ n'est clairement pas bipartite. Il n'y a que 3 sommets. 
 
-(vi) oui
+Toute tentative de créer une bipartition laisse une extrémité dans les deux partitions. Supposons maintenant que $G_{n-1}$ ne soit 
 
-(vii) oui
+pas bipartite et essayons de créer une bipartition de $G_n$. Cela signifie que l'une des biparties mettons $A$ doit toutes contenir 
 
-(viii) oui
+$V(G_{n-1})$ par notre hypothèse d'induction. Considérons $C_{n}$ par définition c'est un $G_{n-1}$-chaines de $G_{n}$ et donc les arêtes 
 
-(ix) oui pour tout $i$, car on peut toujours supprimer $e_3$ et il restera connexe.
+$[v_{3n},v_{3n+ 1}],[v_{3n+1},v_{3n+2}]$ doivent tous se trouver dans l'autre partition $B$. Mais en fait cela est impossible car pour que $G_n$ soit 
 
-(x) oui pour tout $i> 1$, car on peut toujours supprimer $e_3$ et $e_5$ et il restera connexe.
-
-(xi) oui
-
-D)non non oui
-
-
-    
+biparti sur toutes ses arêtes, une extrémité doit se trouver dans $A$ et l'autre dans $B$. Donc $G_n$ n'est pas bipartite.
 
 
 \end{document}

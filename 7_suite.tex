@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage[margin=.3in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows.meta} 
+\usepackage{amsmath}
+\newcommand{\tuple}[1]{\ensuremath{\left\langle #1 \right\rangle}}
+
+\begin{document}
+
+\textbf{Exercice 7} (suite)
+\vspace{0.3cm}
+
+(vi) Oui. Cela peut être démontré par induction. $G_0$ est connexe. Supposons maintenant que $G_n$ est connexe et considérons 
+
+$G_{n+1}$. $C_{n+1}=\tuple{ v_{3(n + 1) - 1},v_{3(n + 1)},v_{3(n + 1) + 1},v_{3(n + 1) + 2},v_{3(n + 1) - 3}} = \tuple{ v_{3n + 2},v_{3(n+1)},v_{3(n + 1) + 1},v_{3(n + 1) + 2},v_{3n}}$
+ est une 
+ 
+ $G_n$-chaine de $G_{n+1}$ donc par l'hypothèse d'induction il doit y avoir un chemin entre tous les sommets de $G_{n+1}$ et $G_n$ également. 
+ 
+ Mais cela implique que $G_n$ est connexe.
+\vspace{0.2cm}
+
+(vii) Oui. On peut montrer cela par induction. $ G_0 $ est 2-connexe. Maintenant, supposons que $ G_n $ est 2-connexe et considérons 
+
+$ G_{n+1} $. En retirant n'importe quel sommet de $ G_n $,  $G_{n+1}$ reste 2-connexe par notre hypothèse, puisque même si nous retirons  $v_{3n}$ 
+
+ou $v_{3n+2}$, nous avons toujours la chaîne $\tuple{v_{3(n+1)}, v_{3(n+1)+1}, v_{3(n+1)+2}, v_{3n-3}}$ ou $\tuple{v_{3n}, v_{3(n+1)}, v_{3(n+1)+1}, v_{3(n+1)+2}}$, qui sont 
+
+tous les deux $G_n$-chaines de $G_{n+1}$ ce qui laisse un chemin de $G_{n+1}$ vers $G_n$. De plus, retirer n'importe quel sommet de $G_{n+1}$ 
+
+laisse les chaînes $\tuple{v_{3(n+1)+1}, v_{3(n+1)+2}, v_{3n-3}}$ ou $\tuple{v_{3n}, v_{3(n+1)}}$ et $\tuple{v_{3(n+1)+2}, v_{3n-3}}$ ou $\tuple{v_{3n}, v_{3(n+1)}, v_{3(n+1)+1}, v_{3(n+1)+2}}$, et 
+
+chacun d'eux est encore une fois $G_n$-chaines de $G_{n+1}$. Par conséquent, $G_{n+1}$ est 2-connexe.
+\vspace{0.2cm}
+
+(viii) oui pour $n = 0$ non pour $n > 0$ car par exemple la suppression des sommets $v_0$ et $v_2$ laisse $v_1$ sans arête.
+\vspace{0.2cm}
+
+(ix) oui pour tout $n$, car on peut toujours supprimer $e_3$ et il restera connexe.
+\vspace{0.2cm}
+
+(x) oui pour tout $n > 1$, car on peut toujours supprimer $e_3$ et $e_5$ et il restera connexe.
+\vspace{0.2cm}
+
+(xi) $G$ est planaire car il peut toujours être dessiné sans intersections car lors de l'ajout d'un triplet de nouveaux sommets, leur 
+
+indice le plus petit peut être tracé parallèlement à l'indice le plus élevé du triplet de sommets précédent et vice-versa. Les 
+
+nouveaux sommets eux-mêmes peuvent ensuite être dessinés sur une ligne parallèle équidistante, en garantissant que l'arrêt 
+
+$[ v_{3n-2},v_{3n+1} ]$, s'il en a besoin, ne croise pas les autres.
+\vspace{0.2cm}
+
+D) $G$ n'est clairement pas 1-colorable puisqu'il n'y a aucun moyen de 1-colorer $G_0$ car il est complet. De même, $G_0$ ce n'est pas 
+
+2-coularable car encore une fois il y a 3 sommets et c'est complet.
+
+Pour voir $G$ est 3-colorable, commençons par colorier $G_0$ avec, disons, rouge, jaune et bleu. $C = \{ r,j,b \}$ une 3-coloration serait 
+
+$c(v_1)= j, c(v_0)= b, c(v_2)= r$. Maintenant $G_1$ peut être 3-coloré par $c(v_3)= g, c(v_4)= j, c(v_5)= r$. Et de même $G_2$ peut être 
+
+3-coloré par $c(v_8)= j, c(v_7)= g, c(v_6)= r$. Ainsi, définis $c : V(G) \rightarrow C$ par
+
+\[
+v_{3n+k} \mapsto
+\begin{cases} 
+b & \text{si } k = 0, \\
+j & \text{si } k = 1 \text{ et } n \text{ est impair}, \\
+r & \text{si } k = 2 \text{ et } n \text{ est impair}, \\
+r & \text{si } k = 1 \text{ et } n \text{ est pair}, \\
+j & \text{si } k = 2 \text{ et } n \text{ est pair}.
+\end{cases}
+\]
+
+pour que $c$ soit une 3-coloration de $G$
+
+\end{document}
